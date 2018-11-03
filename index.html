@@ -6,12 +6,26 @@
 </head>    
 <body>
     
-    <!-- <button id="testBtn"  onclick="createButtons()" style="height: 50px; width: 50px"></button> -->
+    <div class="container">
+        <div class="row">
+            <div id="buttonsDisplay"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                <div id="gifsDisplay"></div>
+            </div>
+            <div class="col-md-2">
+                <form>
+                    <div class="form-group">
+                        <label>Add a topic button</label>
+                            <input id="topicInput" type="text" class="form-control">
+                    </div>
+                    <button id="addTopic" type="submit" class="btn btn-primary">Add</button>                           
+                </form>
+            </div>
+        </div>
+    </div>
 
-    <div id="buttonsDisplay"></div>
-
-    <div id="gifsDisplay"></div>
-    
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/javascript/app.js"></script>
 

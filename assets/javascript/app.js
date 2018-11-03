@@ -22,6 +22,26 @@ function createButtons() {
 
 createButtons();
 
+$("#addTopic").on("click", function(event) {
+    event.preventDefault();
+
+    var newTopic = $("#topicInput").val().trim();
+
+    if (newTopic === "") {
+        alert("You didn't enter anything!");
+    } 
+    else if (topics.indexOf(newTopic) > -1) {
+        alert("There's already a button for that!");            
+    }
+    else {
+        topics.push(newTopic);
+        createButtons();
+    };
+
+    $("#topicInput").val("");
+});
+
+
 $(document).on("click", ".topicBtn", function() {
     var topicQuery = $(this).attr("data-topic");
     
@@ -50,7 +70,7 @@ $(document).on("click", ".topicBtn", function() {
 
                 gifImg.addClass("gif");
 
-            gifDiv.append(gifRating, gifImg);
+            gifDiv.append(gifImg, gifRating);
             gifDiv.addClass("gifDiv");
 
             $("#gifsDisplay").append(gifDiv);            
