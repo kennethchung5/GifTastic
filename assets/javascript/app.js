@@ -20,8 +20,9 @@ function createButtons() {
     };
 };
 
+createButtons();
 
-function generateGifs() {
+$(document).on("click", ".topicBtn", function() {
     var topicQuery = $(this).attr("data-topic");
     
     var queryUrl = "https://api.giphy.com/v1/gifs/search?api_key=2lKKnsGw13j9zQitzT9PJN5z7OhC8aEF&q=" + topicQuery + "&limit=10";
@@ -47,15 +48,27 @@ function generateGifs() {
                 gifImg.attr("src", gifImg.attr("data-still"));                
                 gifImg.attr("data-state", "still");
 
+                gifImg.addClass("gif");
+
             gifDiv.append(gifRating, gifImg);
             gifDiv.addClass("gifDiv");
 
             $("#gifsDisplay").append(gifDiv);            
         };
     });
-};
+});
 
 
-$(document).on("click", ".topicBtn", generateGifs)
-
-
+$(document).on("click", ".gif", function() {
+    if ($(this).attr("data-state") === "still") {
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+    }
+    else if ($(this).attr("data-state") === "animate") {
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
+    else {
+        alert("Something's wrong");
+    };
+});
