@@ -1,0 +1,19 @@
+.topicBtn {
+    height: 100px;
+    width: 100px;
+
+    background-color: green;
+}
+
+.gifDiv {
+    float: left;
+    margin: 10px;
+}
+
+#buttonsDisplay {
+    border: yellow dashed;
+}
+
+#gifsDisplay {
+    border: black dashed;
+}
