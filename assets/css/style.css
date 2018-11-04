@@ -3,9 +3,18 @@
     width: 100px;
     margin: 5px 8px 8px 0;
 
-    background-color: green;
+    background-color: aqua;
     color: white;
 }
+
+.topicBtn:hover, .selectedBtn {
+    background-color: teal;
+}
+
+.selectedBtn {
+    border: thick gold solid;
+}
+
 
 .gifDiv {
     float: left;

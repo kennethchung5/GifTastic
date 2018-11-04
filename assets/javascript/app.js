@@ -43,6 +43,11 @@ $("#addTopic").on("click", function(event) {
 
 
 $(document).on("click", ".topicBtn", function() {
+
+    // remove class "selectedBtn" from all topicBtn, then add it for clicked button; this is for styling
+    $(".topicBtn").removeClass("selectedBtn");
+    $(this).addClass("selectedBtn");
+
     var topicQuery = $(this).attr("data-topic");
     
     var queryUrl = "https://api.giphy.com/v1/gifs/search?api_key=2lKKnsGw13j9zQitzT9PJN5z7OhC8aEF&q=" + topicQuery + "&limit=10";
