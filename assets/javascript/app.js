@@ -1,8 +1,5 @@
-//api key: 
-//2lKKnsGw13j9zQitzT9PJN5z7OhC8aEF
 
-
-var topics = ["starfox", "batman", "bed", "cat"];
+var topics = ["sleep", "cookies", "chips", "piano", "batman", "baseball", "family guy"];
 
 var selectedTopic = "";
 
@@ -64,11 +61,14 @@ $(document).on("click", ".topicBtn", function() {
         $("#gifsDisplay").empty();
         
         var results = response.data;
-
+        // console.log(results);
         for (i = 0; i < results.length; i++) {
             var gifDiv = $("<div>");
 
-            var gifRating = $("<p>").text("Rating: " + results[i].rating);
+            var gifRating = $("<p>").text("Rating: " + results[i].rating.toUpperCase());
+
+            var gifTitle = $("<p>").text(results[i].title);
+            
 
             // make img and set attributes
             var gifImg = $("<img>");
@@ -80,7 +80,13 @@ $(document).on("click", ".topicBtn", function() {
 
                 gifImg.addClass("gif");
 
-            gifDiv.append(gifImg, gifRating);
+            // // make download link; not working...
+            // var downloadLink = $("<a>").text("Download gif");
+            //     downloadLink.attr("href", results[i].images.fixed_height.url);
+            //     downloadLink.attr("download", results[i].title);
+
+            
+            gifDiv.append(gifTitle, gifImg, gifRating);
             gifDiv.addClass("gifDiv");
 
             $("#gifsDisplay").append(gifDiv);            
