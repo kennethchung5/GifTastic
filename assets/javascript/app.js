@@ -4,7 +4,7 @@
 
 var topics = ["starfox", "batman", "bed", "cat"];
 
-
+var selectedTopic = "";
 
 function createButtons() {
     $("#buttonsDisplay").empty();
@@ -15,6 +15,10 @@ function createButtons() {
         newButton.addClass("topicBtn");
         newButton.attr("data-topic", topics[i]);
         newButton.text(topics[i]);
+
+        if (topics[i] === selectedTopic) {
+            newButton.addClass("selectedBtn");
+        };
 
         $("#buttonsDisplay").append(newButton);
     };
@@ -43,10 +47,11 @@ $("#addTopic").on("click", function(event) {
 
 
 $(document).on("click", ".topicBtn", function() {
-
     // remove class "selectedBtn" from all topicBtn, then add it for clicked button; this is for styling
     $(".topicBtn").removeClass("selectedBtn");
     $(this).addClass("selectedBtn");
+
+    selectedTopic = $(this).attr("data-topic");
 
     var topicQuery = $(this).attr("data-topic");
     
