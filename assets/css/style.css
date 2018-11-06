@@ -1,5 +1,15 @@
 p {
     margin: 0;
+    background-color: black;
+    color: white;
+    padding-left: 4px;
+}
+
+.titleHeading {
+    background-color: green;
+    color: white;
+
+    padding: 5px 10px;
 }
 
 .topicBtn {
@@ -23,6 +33,7 @@ p {
 .gifDiv {
     float: left;
     margin: 0 10px 10px 0;
+
 }
 
 #buttonsDisplay {
