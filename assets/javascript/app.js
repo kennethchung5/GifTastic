@@ -3,6 +3,8 @@ var topics = ["sleep", "cookies", "chips", "piano", "batman", "baseball", "famil
 
 var selectedTopic = "";
 
+var gifCount = 10;
+
 function createButtons() {
     $("#buttonsDisplay").empty();
 
@@ -44,15 +46,24 @@ $("#addTopic").on("click", function(event) {
 
 
 $(document).on("click", ".topicBtn", function() {
-    // remove class "selectedBtn" from all topicBtn, then add it for clicked button; this is for styling
-    $(".topicBtn").removeClass("selectedBtn");
-    $(this).addClass("selectedBtn");
+
+    // check whether the clicked topic button is the one that is "active" (already selected); if so, increase the count of gifs queried; if not, set count back to 10 and reassign "selectedBtn" class;
+    if ($(this).hasClass("selectedBtn")) {
+        gifCount += 10;
+    }
+    else {
+        // remove class "selectedBtn" from all topicBtn, then add it for clicked button; this is for styling
+        $(".topicBtn").removeClass("selectedBtn");
+        $(this).addClass("selectedBtn");
+
+        gifCount = 10;
+    }
 
     selectedTopic = $(this).attr("data-topic");
 
     var topicQuery = $(this).attr("data-topic");
     
-    var queryUrl = "https://api.giphy.com/v1/gifs/search?api_key=2lKKnsGw13j9zQitzT9PJN5z7OhC8aEF&q=" + topicQuery + "&limit=10";
+    var queryUrl = "https://api.giphy.com/v1/gifs/search?api_key=2lKKnsGw13j9zQitzT9PJN5z7OhC8aEF&q=" + topicQuery + "&limit=" + gifCount;
 
     $.ajax({
         url: queryUrl,
@@ -89,7 +100,7 @@ $(document).on("click", ".topicBtn", function() {
             gifDiv.append(gifTitle, gifImg, gifRating);
             gifDiv.addClass("gifDiv");
 
-            $("#gifsDisplay").append(gifDiv);            
+            $("#gifsDisplay").prepend(gifDiv);            
         };
     });
 });
