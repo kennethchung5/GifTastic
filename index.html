@@ -11,18 +11,27 @@
         <div class="row">
             <h1 class="titleHeading">Gif Generator</h1>
         </div>
+
+        <div class="row">
+            <p class="instructions">Click the <span class="topicStyle">topic</span> buttons to bring up gifs.<br>   
+            Click the <span class="selectedStyle">selected</span> topic button again to bring up additional gifs!<br>        
+            Add topic buttons using the <span class="inputStyle">input box</span> to the right.</p>
+        </div>
+        
         <div class="row">
             <div id="buttonsDisplay"></div>
         </div>
+
         <div class="row">
             <div class="col-md-10">
                 <div id="gifsDisplay"></div>
             </div>
+
             <div class="col-md-2">
                 <form>
                     <div class="form-group">
                         <label>Add a topic button</label>
-                            <input id="topicInput" type="text" class="form-control">
+                            <input id="topicInput" type="text" class="form-control" placeholder="new topic">
                     </div>
                     <button id="addTopic" type="submit" class="btn btn-primary">Add</button>                           
                 </form>

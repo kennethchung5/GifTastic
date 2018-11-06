@@ -12,6 +12,11 @@ p {
     padding: 5px 10px;
 }
 
+.instructions {
+    background-color: white;
+    color: blue;
+}
+
 .topicBtn {
     height: 40px;
     width: 100px;
@@ -29,17 +34,32 @@ p {
     border: thick gold solid;
 }
 
+.topicStyle {
+    background-color: aqua;
+    color: white;
+    border: medium solid silver;  
+
+    padding: 0 4px;
+}
+
+.selectedStyle {
+    background-color: teal;
+    color: white;
+    border: medium gold solid;
+
+    padding: 0 4px;
+}
+
+.inputStyle {
+    background-color: #fff;
+    color: #495057;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+
+    padding: 0 4px;
+}
 
 .gifDiv {
     float: left;
     margin: 0 10px 10px 0;
-
-}
-
-#buttonsDisplay {
-    /* border: yellow dashed; */
-}
-
-#gifsDisplay {
-    /* border: black dashed; */
 }
