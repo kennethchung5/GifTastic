@@ -1,1 +1,11 @@
 # GifTastic
+
+This app is powered by the GIPHY API. When the user clicks a topic button, the app constructs a query url using the clicked topic as one of the parameters and submits an AJAX query to the API. It displays the resulting gifs to the page. Clicking on a new topic will clear the currently-displayed gifs and display 10 gifs related to the clicked topic. Clicking on the topic button that is already selected, however, will result in an additional 10 gifs related to the same topic being displayed to the page. The user also has the option to add custom topic buttons to the page through a text input. 
+
+The topic button that was most recently clicked (and is thus "selected") has a distinct appearance indicating that it's the one whose gifs are currently being displayed.This appearance is accomplished through the assignment of a particular class for CSS styling. 
+
+Two notes about the code: 
+1. As the app is written, adding a topic button through the input box entails deleting and recreating all the topic buttons. I added some functionality so that the styling for the "selected" topic button could persist through this process. Specifically, a global variable (selectedTopic) is used to record the selected topic, and this variable is checked when the topic buttons are recreated. 
+2. Clicking the topic button that is already selected results in displaying an additional 10 gifs to the page. The app is actually clearing the gifs display and repopulating it with the results of a new query with an increased limit parameter. Because the query is expanded without reordering the results, it returns the same set of gifs plus an additional 10, giving the illusion that clicking the button simply adds 10 gifs to those that are already on the page. 
+
+I implemented these two features after I already had most of the core functionality written. Instead of planning the code around these features, I had to work around the constraints of the code I already had in place in order to accommodate them. Consequently, the final code is not written as efficiently (DRYly) as it could be. I hope to learn from this experience to better organize my future projects; I'll allot more time for planning and conceiving major features before diving into the actual coding. 
